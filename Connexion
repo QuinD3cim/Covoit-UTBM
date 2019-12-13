@@ -1,0 +1,38 @@
+Dim FichierAccess As Database
+Dim TableAcces As DAO.Recordset
+Dim rs As Recordset
+
+Dim requete As String
+Dim nbcomptes As Integer
+
+Sub connexion()
+
+    Set FichierAccess = OpenDatabase("Covoitutbm.accdb")
+    Set TableAccess = FichierAccess.OpenRecordset("connexion", dbOpenTable)
+    
+    MsgBox ("connexion établie")
+
+End Sub
+
+Private Sub b_connecter_Click()
+
+    Call connexion
+    
+    requete = "SELECT COUNT(*) FROM connexion"
+    Set rs = FichierAccess.OpenRecordset(requete)
+    
+    Range("A1").CopyFromRecordset rs
+    nbcomptes = Range("A1").Value
+    Range("A1").Value = ""
+    
+    requete = "SELECT * FROM table_name"
+    
+End Sub
+
+
+Private Sub UserForm_Initialize()
+
+    tb_mdp.PasswordChar = "*"
+
+End Sub
+
