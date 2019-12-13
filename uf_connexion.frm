@@ -26,7 +26,7 @@ Sub connexion()
     Set FichierAccess = OpenDatabase("Covoitutbm.accdb")
     Set TableAccess = FichierAccess.OpenRecordset("connexion", dbOpenTable)
     
-    MsgBox ("connexion Ã©tablie")
+    MsgBox ("connexion établie")
 
 End Sub
 
@@ -34,7 +34,7 @@ Private Sub b_connecter_Click()
 
     Call connexion
     
-    'RÃ©cupÃ©ration du nombre de comptes dans la base de donnÃ©es
+    'Récupération du nombre de comptes dans la base de données
     
     requete = "SELECT COUNT(*) FROM " & table
     Set rs = FichierAccess.OpenRecordset(requete)
@@ -43,7 +43,7 @@ Private Sub b_connecter_Click()
     nbcomptes = Range("A1").Value
     Range("A1").Value = ""
     
-    'RÃ©cupÃ©rer les identifiants des comptes
+    'Récupérer les identifiants des comptes
     
     requete = "SELECT * FROM table_name"
     
